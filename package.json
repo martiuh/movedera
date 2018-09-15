@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build src/index.js"
+    "build": "parcel build src/App.js"
   },
   "devDependencies": {
     "babel-plugin-transform-class-properties": "^6.24.1",
