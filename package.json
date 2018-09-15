@@ -12,10 +12,12 @@
     "glamor": "^2.20.40",
     "glamorous": "^4.13.1",
     "react": "^16.5.1",
-    "react-dom": "^16.5.1"
+    "react-dom": "^16.5.1",
+    "react-hot-loader": "^4.3.8"
   },
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "build": "parcel build src/index.js"
   },
   "devDependencies": {
     "babel-plugin-transform-class-properties": "^6.24.1",
