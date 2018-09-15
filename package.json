@@ -1,0 +1,25 @@
+{
+  "name": "movedera",
+  "version": "0.1.0",
+  "description": "Website builder for React",
+  "main": "src/index.js",
+  "author": "Tona González <martiuh@gmail.com>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "glamor": "^2.20.40",
+    "glamorous": "^4.13.1",
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1"
+  },
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "parcel-bundler": "^1.9.7"
+  }
+}
