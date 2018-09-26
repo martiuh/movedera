@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { css } from 'glamor'
 
 const editorStyle = css({
@@ -7,12 +7,33 @@ const editorStyle = css({
   border: '1px solid black'
 })
 
+const Paragraph = ({ children }) => <p>{children}</p>
+const HeadingOne = ({ children }) => <h1>{children}</h1>
+
+const tags = {
+  p: Paragraph,
+  h1: HeadingOne,
+}
+
 export default class Editor extends React.Component {
+  state = {
+    layout: [
+      {
+        key: unique(),
+        tag: 'h1',
+        children: 'Que rica michelada'
+      },
+      {
+        key: unique(),
+        tag: 'p',
+        children: 'Hola'
+      }
+    ]
+  }
+
   editor = React.createRef()
 
   componentDidMount() {
-    this.editor.current.addEventListener('load', () => alert('Listo'))
-    console.log(this.editor.onload)
     const doc = this.getEditor()
     doc.head.innerHTML = `
       <style>
@@ -32,11 +53,17 @@ export default class Editor extends React.Component {
   getEditor = () => this.editor.current.contentDocument
   render () {
     return (
-      <iframe
-        allowFullScreen
-        {...editorStyle}
-        ref={this.editor}
-      />
+      <Fragment>
+        {this.state.layout.map(L => {
+          const WebElement = tags[L.tag] || div
+          return <WebElement {...L} />
+        })}
+        <iframe
+          allowFullScreen
+          {...editorStyle}
+          ref={this.editor}
+        />
+      </Fragment>
     )
   }
 }
